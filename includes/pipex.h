@@ -6,6 +6,12 @@
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:32:55 by itan              #+#    #+#             */
-/*   Updated: 2023/02/22 17:32:56 by itan             ###   ########.fr       */
+/*   Updated: 2023/02/22 21:15:45 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PIPEX_H
+# define PIPEX_H
+# include "libft.h"
+# include <stdio.h>
+#endif
