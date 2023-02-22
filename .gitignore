@@ -1,0 +1,5 @@
+*.o
+*.out
+minitalk
+*.DSYM
+debug.out
