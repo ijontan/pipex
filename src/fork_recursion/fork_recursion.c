@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fork_recursion.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 17:33:06 by itan              #+#    #+#             */
-/*   Updated: 2023/02/23 18:15:41 by itan             ###   ########.fr       */
+/*   Created: 2023/02/23 18:19:13 by itan              #+#    #+#             */
+/*   Updated: 2023/02/23 18:30:00 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-// int	split_process(void)
-// {
-// 	pid_t	pid;
-
-// 	pid = fork();
-// 	if (pid == -1)
-// 		perror("fork");
-// 	else if (pid == 0)
-// 		printf();
-// 	else
-// 		printf();
-// }
-
-int	main(int ac, char const **av, char **envp)
+void	fork_recursion(char **args)
 {
-	char	*dst;
+	pid_t	pid;
 
-	(void)ac;
-	dst = check_program_exist((char *)av[1], envp);
-	if (dst)
-		ft_printf(dst);
-	return (0);
+	pid = fork();
+	if (pid == -1)
+		return (perror("fork"));
+	else if (pid == 0)
+		child_process();
+	else
+		parent_process();
 }

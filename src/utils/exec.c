@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 17:33:06 by itan              #+#    #+#             */
-/*   Updated: 2023/02/23 18:15:41 by itan             ###   ########.fr       */
+/*   Created: 2023/02/23 18:23:55 by itan              #+#    #+#             */
+/*   Updated: 2023/02/23 18:38:17 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-// int	split_process(void)
-// {
-// 	pid_t	pid;
-
-// 	pid = fork();
-// 	if (pid == -1)
-// 		perror("fork");
-// 	else if (pid == 0)
-// 		printf();
-// 	else
-// 		printf();
-// }
-
-int	main(int ac, char const **av, char **envp)
+void	execute_program(char *name_with_path, char *args, char **envp)
 {
-	char	*dst;
-
-	(void)ac;
-	dst = check_program_exist((char *)av[1], envp);
-	if (dst)
-		ft_printf(dst);
-	return (0);
+	if (execve(name_with_path, args, evp) == -1)
+		perror("execute");
 }
