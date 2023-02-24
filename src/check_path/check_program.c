@@ -6,7 +6,7 @@
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:37:18 by itan              #+#    #+#             */
-/*   Updated: 2023/02/23 18:16:41 by itan             ###   ########.fr       */
+/*   Updated: 2023/02/25 02:05:38 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,6 @@ static char	*get_path(char **envp)
 		envp++;
 	}
 	return (NULL);
-}
-
-static char	*add_slash(char *program_name_without_slash)
-{
-	char	*dst;
-
-	dst = ft_strjoin("/", program_name_without_slash);
-	return (dst);
 }
 
 static void	free_2d(char **val)
@@ -48,7 +40,7 @@ char	*check_program_exist(char *program_name, char **envp)
 	int		i;
 
 	i = 0;
-	program_name = add_slash(program_name);
+	program_name = ft_strjoin("/", program_name);
 	paths = ft_split(get_path(envp) + 5, ':');
 	while (paths[i])
 	{

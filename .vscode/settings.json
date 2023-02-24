@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.h": "cpp",
+    "atomic": "c",
+    "sstream": "c",
+    "*.tcc": "c"
+  }
+}
