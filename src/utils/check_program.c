@@ -6,7 +6,7 @@
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:37:18 by itan              #+#    #+#             */
-/*   Updated: 2023/02/25 02:05:38 by itan             ###   ########.fr       */
+/*   Updated: 2023/02/26 15:14:31 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	*get_path(char **envp)
 	return (NULL);
 }
 
-static void	free_2d(char **val)
+void	free_2d(char **val)
 {
 	int	i;
 
