@@ -6,7 +6,7 @@
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:37:18 by itan              #+#    #+#             */
-/*   Updated: 2023/02/28 19:53:59 by itan             ###   ########.fr       */
+/*   Updated: 2023/02/28 20:33:55 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*check_program_exist(char *program_name, char **envp)
 	int		i;
 
 	i = 0;
+	dst = NULL;
 	program_name = ft_strjoin("/", program_name);
 	paths = ft_split(get_path(envp) + 5, ':');
 	while (paths[i])
@@ -41,6 +42,8 @@ char	*check_program_exist(char *program_name, char **envp)
 			free_2d(paths);
 			return (dst);
 		}
+		if (dst)
+			free(dst);
 	}
 	free(program_name);
 	free_2d(paths);
