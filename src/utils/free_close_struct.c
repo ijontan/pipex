@@ -6,7 +6,7 @@
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 15:15:33 by itan              #+#    #+#             */
-/*   Updated: 2023/02/28 17:20:09 by itan             ###   ########.fr       */
+/*   Updated: 2023/02/28 19:54:06 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,16 @@ static void	close_handle(int fd)
 		perror("close");
 		exit(1);
 	}
+}
+
+void	free_2d(char **val)
+{
+	int	i;
+
+	i = 0;
+	while (val[i])
+		free(val[i++]);
+	free(val);
 }
 
 void	free_close_struct(t_pipex_data *data)

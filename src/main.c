@@ -6,14 +6,14 @@
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:33:06 by itan              #+#    #+#             */
-/*   Updated: 2023/02/28 17:57:19 by itan             ###   ########.fr       */
+/*   Updated: 2023/02/28 19:55:52 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #include <fcntl.h>
 
-char	**get_commants(char **av, int count)
+static char	**get_commants(char **av, int count)
 {
 	char	**dst;
 	int		i;
