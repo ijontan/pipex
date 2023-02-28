@@ -6,7 +6,7 @@
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:32:55 by itan              #+#    #+#             */
-/*   Updated: 2023/02/26 18:18:42 by itan             ###   ########.fr       */
+/*   Updated: 2023/02/28 16:16:18 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_pipex_data
 {
 	int		p_fd1[2];
 	int		p_fd2[2];
+	char	*here_doc_val;
 	char	**cmds;
 	int		fd_in;
 	int		fd_out;
@@ -30,7 +31,7 @@ typedef struct s_pipex_data
 char		*check_program_exist(char *program_name, char **envp);
 char		**lst_join(char **a, char **b);
 void		fork_recursion(t_pipex_data *data, char **envp);
-void		print2d(char **val);
 void		free_2d(char **val);
 void		free_close_struct(t_pipex_data *data);
+void		here_doc(t_pipex_data *data, char **envp);
 #endif

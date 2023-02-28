@@ -6,11 +6,20 @@
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 15:15:33 by itan              #+#    #+#             */
-/*   Updated: 2023/02/26 19:52:09 by itan             ###   ########.fr       */
+/*   Updated: 2023/02/28 17:20:09 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+static void	close_handle(int fd)
+{
+	if (close(fd))
+	{
+		perror("close");
+		exit(1);
+	}
+}
 
 void	free_close_struct(t_pipex_data *data)
 {
