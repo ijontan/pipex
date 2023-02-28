@@ -3,3 +3,5 @@
 pipex
 *.DSYM
 debug.out
+infile
+outfile
