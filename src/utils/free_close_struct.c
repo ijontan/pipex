@@ -15,16 +15,11 @@
 void	free_close_struct(t_pipex_data *data)
 {
 	free_2d(data->cmds);
-	close(data->fd_in);
-	close(data->fd_out);
-	// if (data->recur_depth % 2 == 0)
-	// {
-	close(data->p_fd1[0]);
-	close(data->p_fd2[1]);
-	// }
-	// else
-	// {
-	close(data->p_fd1[1]);
-	close(data->p_fd2[0]);
-	// }
+	if (!data->here_doc_val)
+		close_handle(data->fd_in);
+	close_handle(data->fd_out);
+	close_handle(data->p_fd1[0]);
+	close_handle(data->p_fd2[1]);
+	close_handle(data->p_fd1[1]);
+	close_handle(data->p_fd2[0]);
 }
