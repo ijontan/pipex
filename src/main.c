@@ -6,7 +6,7 @@
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:33:06 by itan              #+#    #+#             */
-/*   Updated: 2023/02/28 21:16:34 by itan             ###   ########.fr       */
+/*   Updated: 2023/03/01 19:56:41 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	pipex_data_init(t_pipex_data *data, int is_here_doc, int ac,
 	if (is_here_doc)
 	{
 		data->here_doc_val = ft_strjoin(av[2], "\n");
-		data->fd_out = open(av[ac - 1], O_CREAT | O_RDWR | O_APPEND);
+		data->fd_out = open(av[ac - 1], O_CREAT | O_RDWR | O_APPEND, 0644);
 	}
 	else
 	{
@@ -47,7 +47,7 @@ static void	pipex_data_init(t_pipex_data *data, int is_here_doc, int ac,
 			perror("fail to open infile");
 			exit(1);
 		}
-		data->fd_out = open(av[ac - 1], O_TRUNC | O_CREAT | O_RDWR);
+		data->fd_out = open(av[ac - 1], O_TRUNC | O_CREAT | O_RDWR, 0644);
 	}
 	if (data->fd_out == -1)
 	{
