@@ -6,13 +6,13 @@
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:37:18 by itan              #+#    #+#             */
-/*   Updated: 2023/02/28 20:33:55 by itan             ###   ########.fr       */
+/*   Updated: 2023/03/02 17:01:09 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static char	*get_path(char **envp)
+static char	*get_path(char **envp, t_pipex_data *data)
 {
 	while (*envp)
 	{
@@ -20,10 +20,14 @@ static char	*get_path(char **envp)
 			return (*envp);
 		envp++;
 	}
+	free_close_struct(data);
+	perror("PATH not found");
+	exit(127);
 	return (NULL);
 }
 
-char	*check_program_exist(char *program_name, char **envp)
+char	*check_program_exist(char *program_name, char **envp,
+		t_pipex_data *data)
 {
 	char	**paths;
 	char	*dst;
@@ -32,7 +36,7 @@ char	*check_program_exist(char *program_name, char **envp)
 	i = 0;
 	dst = NULL;
 	program_name = ft_strjoin("/", program_name);
-	paths = ft_split(get_path(envp) + 5, ':');
+	paths = ft_split(get_path(envp, data) + 5, ':');
 	while (paths[i])
 	{
 		dst = ft_strjoin(paths[i++], program_name);

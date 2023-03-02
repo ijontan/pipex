@@ -6,7 +6,7 @@
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:19:13 by itan              #+#    #+#             */
-/*   Updated: 2023/02/28 20:46:50 by itan             ###   ########.fr       */
+/*   Updated: 2023/03/02 17:02:43 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	child_process(t_pipex_data *data, char **envp, int pid)
 		return (fork_recursion(data, envp));
 	set_fd_child(data);
 	final_argv = ft_split(data->cmds[data->recur_depth], ' ');
-	final_program_name = check_program_exist(final_argv[0], envp);
+	final_program_name = check_program_exist(final_argv[0], envp, data);
 	free_close_struct(data);
 	if (!final_program_name)
 		exit(1);
@@ -68,7 +68,7 @@ static void	parent_process(t_pipex_data *data, char **envp)
 
 	set_fd_parent(data);
 	final_argv = ft_split(data->cmds[data->recur_depth], ' ');
-	final_program_name = check_program_exist(final_argv[0], envp);
+	final_program_name = check_program_exist(final_argv[0], envp, data);
 	free_close_struct(data);
 	if (!final_program_name)
 		exit(1);

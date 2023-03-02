@@ -6,7 +6,7 @@
 /*   By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:32:55 by itan              #+#    #+#             */
-/*   Updated: 2023/03/01 16:22:50 by itan             ###   ########.fr       */
+/*   Updated: 2023/03/02 17:01:50 by itan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ typedef struct s_pipex_data
 	int		recur_depth;
 }			t_pipex_data;
 
-char		*check_program_exist(char *program_name, char **envp);
+char		*check_program_exist(char *program_name, char **envp,
+				t_pipex_data *data);
 void		fork_recursion(t_pipex_data *data, char **envp);
 void		free_2d(char **val);
 void		free_close_struct(t_pipex_data *data);
